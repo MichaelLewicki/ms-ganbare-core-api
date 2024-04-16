@@ -1,2 +1,12 @@
-package cl.lewickidev.ganbare.msganbareapi.domain.dto;public class Message {
+package cl.lewickidev.ganbare.msganbareapi.domain.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class Message {
+
+    private String message;
+
 }

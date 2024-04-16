@@ -5,7 +5,8 @@ import lombok.Data;
 @Data
 public class Episode {
 
-    private String name;
+    private Long id;
+    private String title;
     private Integer number;
 
 }
