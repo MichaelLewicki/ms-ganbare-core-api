@@ -7,6 +7,7 @@ spring:
     url: jdbc:mysql://localhost:3306/ganbare
     username: root
     password: clave123
+    driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximumPoolSize: 10
       minimumIdle: 5
@@ -16,3 +17,4 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+    open-in-view: false
