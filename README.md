@@ -1,8 +1,3 @@
-# Read Me First
-The following was discovered as part of building this project:
-
-* The original package name 'cl.lewickidev.ganbare.ms-ganbare-core-api' is invalid and this project uses 'cl.lewickidev.ganbare.msganbareapi' instead.
-
 # Getting Started
 
 ### Reference Documentation
