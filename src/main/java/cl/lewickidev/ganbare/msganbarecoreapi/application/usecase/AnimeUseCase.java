@@ -1,10 +1,10 @@
-package cl.lewickidev.ganbare.msganbareapi.application.usecase;
+package cl.lewickidev.ganbare.msganbarecoreapi.application.usecase;
 
-import cl.lewickidev.ganbare.msganbareapi.domain.dto.Message;
-import cl.lewickidev.ganbare.msganbareapi.domain.model.Anime;
-import cl.lewickidev.ganbare.msganbareapi.shared.exception.HandledException;
-import cl.lewickidev.ganbare.msganbareapi.infrastructure.port.input.AnimeInputPort;
-import cl.lewickidev.ganbare.msganbareapi.infrastructure.port.output.AnimeOutputPort;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
+import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.input.AnimeInputPort;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.AnimeOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

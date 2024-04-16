@@ -1,4 +1,4 @@
-package cl.lewickidev.ganbare.msganbareapi.infrastructure.adapter.output.entity;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

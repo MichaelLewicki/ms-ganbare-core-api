@@ -1,7 +1,7 @@
-package cl.lewickidev.ganbare.msganbareapi.infrastructure.adapter.output.mapper;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mapper;
 
-import cl.lewickidev.ganbare.msganbareapi.domain.model.Anime;
-import cl.lewickidev.ganbare.msganbareapi.infrastructure.adapter.output.entity.AnimeEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity.AnimeEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
 import org.mapstruct.NullValueCheckStrategy;

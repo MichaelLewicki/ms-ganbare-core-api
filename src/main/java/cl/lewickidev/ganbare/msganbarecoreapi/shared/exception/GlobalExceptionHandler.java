@@ -1,4 +1,4 @@
-package cl.lewickidev.ganbare.msganbareapi.shared.exception;
+package cl.lewickidev.ganbare.msganbarecoreapi.shared.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package cl.lewickidev.ganbare.msganbareapi.domain.model;
+package cl.lewickidev.ganbare.msganbarecoreapi.domain.model;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

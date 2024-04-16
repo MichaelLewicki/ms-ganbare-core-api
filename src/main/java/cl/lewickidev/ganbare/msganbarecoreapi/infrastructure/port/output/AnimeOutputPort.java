@@ -1,12 +1,10 @@
-package cl.lewickidev.ganbare.msganbareapi.infrastructure.port.output;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output;
 
-import cl.lewickidev.ganbare.msganbareapi.domain.dto.Message;
-import cl.lewickidev.ganbare.msganbareapi.domain.model.Anime;
-import cl.lewickidev.ganbare.msganbareapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
+import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import java.util.List;
 
 public interface AnimeOutputPort {
 

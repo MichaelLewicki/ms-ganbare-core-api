@@ -1,4 +1,4 @@
-package cl.lewickidev.ganbare.msganbareapi.domain.dto;
+package cl.lewickidev.ganbare.msganbarecoreapi.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

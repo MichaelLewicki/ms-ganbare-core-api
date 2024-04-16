@@ -1,4 +1,4 @@
-package cl.lewickidev.ganbare.msganbareapi.shared.exception;
+package cl.lewickidev.ganbare.msganbarecoreapi.shared.exception;
 
 public class HandledException extends Exception {
     private String code;

@@ -1,11 +1,26 @@
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.6
-WORKDIR /work/
-RUN chown 1001 /work \
-    && chmod "g+rwX" /work \
-    && chown 1001:root /work
-COPY --chown=1001:root target/*-runner /work/application
+# Use a GraalVM base image for building the native image
+FROM ghcr.io/graalvm/graalvm-ce:22.3.2 as builder
 
+# Set the working directory
+WORKDIR /app
+
+# Copy the Gradle project files
+COPY gradlew build.gradle.kts settings.gradle.kts ./
+COPY gradle/ gradle/
+COPY src/ src/
+
+# Build the native image with GraalVM
+RUN ./gradlew clean nativeCompile
+
+# Use a small base image for the runtime
+FROM gcr.io/distroless/java17-debian11
+WORKDIR /app
+
+# Copy the native executable from the builder stage
+COPY --from=builder /app/build/native/nativeCompile/application ./application
+
+# Expose the port that your Spring Boot application is listening on
 EXPOSE 8080
-USER 1001
 
-CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]
+# Run the native application
+CMD ["./application"]

@@ -1,11 +1,11 @@
-package cl.lewickidev.ganbare.msganbareapi.infrastructure.adapter.input.imp;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.imp;
 
 
-import cl.lewickidev.ganbare.msganbareapi.domain.dto.Message;
-import cl.lewickidev.ganbare.msganbareapi.domain.model.Anime;
-import cl.lewickidev.ganbare.msganbareapi.shared.exception.HandledException;
-import cl.lewickidev.ganbare.msganbareapi.infrastructure.adapter.input.AnimeController;
-import cl.lewickidev.ganbare.msganbareapi.infrastructure.port.input.AnimeInputPort;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
+import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.AnimeController;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.input.AnimeInputPort;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;

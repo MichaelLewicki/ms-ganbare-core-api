@@ -1,13 +1,13 @@
-package cl.lewickidev.ganbare.msganbareapi;
+package cl.lewickidev.ganbare.msganbarecoreapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MsGanbareApiApplication {
+public class MsGanbareCoreApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MsGanbareApiApplication.class, args);
+		SpringApplication.run(MsGanbareCoreApiApplication.class, args);
 	}
 
 }

@@ -1,15 +1,13 @@
-package cl.lewickidev.ganbare.msganbareapi.infrastructure.adapter.input;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input;
 
-import cl.lewickidev.ganbare.msganbareapi.domain.dto.Message;
-import cl.lewickidev.ganbare.msganbareapi.domain.model.Anime;
-import cl.lewickidev.ganbare.msganbareapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
+import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 @RequestMapping(value = "/api/v1/ganbare")

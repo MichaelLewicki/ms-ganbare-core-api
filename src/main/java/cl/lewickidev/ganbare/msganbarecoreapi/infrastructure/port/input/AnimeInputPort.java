@@ -1,8 +1,8 @@
-package cl.lewickidev.ganbare.msganbareapi.infrastructure.port.input;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.input;
 
-import cl.lewickidev.ganbare.msganbareapi.domain.dto.Message;
-import cl.lewickidev.ganbare.msganbareapi.domain.model.Anime;
-import cl.lewickidev.ganbare.msganbareapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
+import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

@@ -1,12 +1,12 @@
-package cl.lewickidev.ganbare.msganbareapi.infrastructure.adapter.output;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output;
 
-import cl.lewickidev.ganbare.msganbareapi.domain.dto.Message;
-import cl.lewickidev.ganbare.msganbareapi.domain.model.Anime;
-import cl.lewickidev.ganbare.msganbareapi.shared.exception.HandledException;
-import cl.lewickidev.ganbare.msganbareapi.infrastructure.adapter.output.entity.AnimeEntity;
-import cl.lewickidev.ganbare.msganbareapi.infrastructure.adapter.output.mapper.DomainEntityMapper;
-import cl.lewickidev.ganbare.msganbareapi.infrastructure.adapter.output.repository.AnimeRepository;
-import cl.lewickidev.ganbare.msganbareapi.infrastructure.port.output.AnimeOutputPort;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
+import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity.AnimeEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mapper.DomainEntityMapper;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.repository.AnimeRepository;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.AnimeOutputPort;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
