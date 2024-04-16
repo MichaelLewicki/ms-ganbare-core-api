@@ -28,17 +28,26 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.mapstruct:mapstruct:1.5.5.Final")
+
 	compileOnly("org.projectlombok:lombok")
+
 	runtimeOnly("com.mysql:mysql-connector-j")
+
 	annotationProcessor("org.projectlombok:lombok")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+//to see more details from compiler
+/*tasks.withType<JavaCompile> {
+	options.compilerArgs.add("-Xlint:unchecked")
+}*/
 
 hibernate {
 	enhancement {
