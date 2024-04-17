@@ -1,11 +1,9 @@
-version: "3.7"
 services:
   db:
     image: mysql:8
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
+    command: --default-authentication-plugin=caching_sha2_password
     ports:
-    - 3306:3306
+     - 3306:3306
     environment:
       MYSQL_USER: demo
       MYSQL_PASSWORD: clave123
@@ -14,14 +12,22 @@ services:
       TZ: America/Santiago
     volumes:
     - ./datadir:/var/lib/mysql
-  #app:
-    #image: lewickidev/gameshub:1.0.0
-    #environment:
-      #JAVA_OPS_APPEND: '-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dquarkus-profile=docker'
-      #QUARKUS_DATASOURCE_JDBC_URL: 'jdbc:mysql://db:3306/gameshub?autoReconnect=true'
-      #QUARKUS_DATASOURCE_USERNAME: gameshub
-      #QUARKUS_DATASOURCE_PASSWORD: clave123
-    #ports:
-      #- "8080:8080"
-    #depends_on:
-      #- db
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+  ganbare-core:
+    image: ms-ganbare-core-api:1.0.0
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/ganbare?autoReconnect=true
+      SPRING_DATASOURCE_USERNAME: demo
+      SPRING_DATASOURCE_PASSWORD: clave123
+    depends_on:
+      db:
+        condition: service_healthy
+    tty: true
+    restart: always
