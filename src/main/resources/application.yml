@@ -20,5 +20,5 @@ spring:
     open-in-view: false
 swagger:
   title: ms-ganbare-core-api
-  description: This is the core of ganbare application
+  description: This is the core of Ganbare application
   version: 1.0.0
