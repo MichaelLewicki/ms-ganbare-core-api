@@ -18,3 +18,7 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: false
+swagger:
+  title: ms-ganbare-core-api
+  description: This is the core of ganbare application
+  version: 1.0.0
