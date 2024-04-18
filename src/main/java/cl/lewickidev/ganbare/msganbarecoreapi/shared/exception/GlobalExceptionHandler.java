@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
         body.put("error", HttpStatus.BAD_REQUEST.getReasonPhrase());
         body.put("message", ex.getMessage().replace("\\", "").replace("\"", ""));
         body.put("path", request.getDescription(false));
-        ex.printStackTrace();
+        //ex.printStackTrace();
         log.info("HandlerMethodValidationException: {}", ex.toString());
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
