@@ -2,6 +2,8 @@ package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.ent
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -14,9 +16,11 @@ public class EpisodeEntity {
     private Long id;
 
     @Column(name = "NUMBER")
+    @NotNull(message = "number cannot be null")
     private Integer number;
 
     @Column(name = "TITLE")
+    @NotBlank(message = "title cannot be blank")
     private String title;
 
     @ManyToOne
