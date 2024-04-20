@@ -26,12 +26,12 @@ public class CharacterControllerImp implements CharacterController {
     private CharacterInputPort characterInputPort;
 
     @Override
-    public ResponseEntity<Character> postCharacterByAnimeId(@Valid @NotNull Long idAnimme, Character character) throws HandledException {
+    public ResponseEntity<Character> postCharacterByAnimeId(@Valid @NotNull Long idAnime, Character character) throws HandledException {
         if (character.getId() != null) {
             throw new HandledException("400", "The request doesn't need to insert the ID into the payload");
         }
         log.info("[postCharacterByAnimeId] Request payload: {}", character.toString());
-        Character result = characterInputPort.postCharacterByAnimeId(idAnimme, character);
+        Character result = characterInputPort.postCharacterByAnimeId(idAnime, character);
         log.info("[postCharacterByAnimeId] Response: {}", result.toString());
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }

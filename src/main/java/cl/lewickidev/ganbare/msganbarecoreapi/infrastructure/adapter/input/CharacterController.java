@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public interface CharacterController {
 
     @PostMapping(value = "anime/{idAnime}/character")
-    public ResponseEntity<Character> postCharacterByAnimeId(@Valid @NotNull @PathVariable("idAnime") Long idAnimme,
+    public ResponseEntity<Character> postCharacterByAnimeId(@Valid @NotNull @PathVariable("idAnime") Long idAnime,
                                                             @RequestBody Character character) throws HandledException;
 
     @PutMapping("/character/{idCharacter}")
