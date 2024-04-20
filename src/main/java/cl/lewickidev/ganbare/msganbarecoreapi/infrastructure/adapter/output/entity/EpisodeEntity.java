@@ -8,6 +8,7 @@ import lombok.Data;
 
 @Data
 @Table(name = "EPISODE")
+@Entity
 public class EpisodeEntity {
 
     @Id
