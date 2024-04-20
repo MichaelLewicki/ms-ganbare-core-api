@@ -17,7 +17,6 @@ public interface DomainEntityMapper {
 
 	//Anime...
 
-	@Mapping(target = "characters", source = "characters")
 	Anime toDTO(AnimeEntity entity);
 
 	AnimeEntity toEntity(Anime dto);
