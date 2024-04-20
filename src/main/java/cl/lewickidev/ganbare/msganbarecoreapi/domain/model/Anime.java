@@ -2,7 +2,7 @@ package cl.lewickidev.ganbare.msganbarecoreapi.domain.model;
 
 import lombok.Data;
 
-import java.util.LinkedHashSet;
+import java.util.*;
 
 @Data
 public class Anime {
@@ -13,8 +13,8 @@ public class Anime {
     private String description;
     private String image;
 
-    private LinkedHashSet<Character> characters = new LinkedHashSet<>();
-    //private LinkedHashSet<Episode> episodes = new LinkedHashSet<>();
-    //private LinkedHashSet<Genre> genres = new LinkedHashSet<>();
+    private List<Character> characters = new ArrayList<>();
+    //private List<Episode> episodes = new ArrayList<>();
+    //private List<Genre> genres = new ArrayList<>();
 
 }
