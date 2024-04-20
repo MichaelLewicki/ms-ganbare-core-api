@@ -1,6 +1,5 @@
 package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity;
 
-import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
