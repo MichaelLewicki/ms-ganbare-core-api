@@ -1,5 +1,6 @@
 package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity;
 
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -37,5 +38,9 @@ public class AnimeEntity {
     @OneToMany(mappedBy = "anime", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<CharacterEntity> characters = new ArrayList<>();
+
+    @OneToMany(mappedBy = "anime", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private List<EpisodeEntity> episodes = new ArrayList<>();
 
 }
