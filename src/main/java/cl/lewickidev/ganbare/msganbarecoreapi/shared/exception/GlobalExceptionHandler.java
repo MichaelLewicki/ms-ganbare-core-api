@@ -1,5 +1,6 @@
 package cl.lewickidev.ganbare.msganbarecoreapi.shared.exception;
 
+import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +42,19 @@ public class GlobalExceptionHandler {
         //ex.printStackTrace();
         log.info("HandlerMethodValidationException: {}", ex.toString());
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = { ConstraintViolationException.class })
+    public ResponseEntity<?> handleConstraintViolationException(ConstraintViolationException ex, WebRequest request) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.CONFLICT);
+        body.put("error", HttpStatus.CONFLICT.getReasonPhrase());
+        body.put("message", ex.getMessage());
+        body.put("path", request.getDescription(false));
+        ex.printStackTrace();
+        log.error("ConstraintViolationException: {}", ex.toString());
+        return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(value = { HandledException.class })
