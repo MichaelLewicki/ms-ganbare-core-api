@@ -6,7 +6,7 @@ import lombok.Data;
 public class Episode {
 
     private Long id;
-    private String title;
     private Integer number;
+    private String title;
 
 }
