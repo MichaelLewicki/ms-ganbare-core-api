@@ -34,12 +34,18 @@ public class AnimeEntity {
     @Column(name = "IMAGE")
     private String image;
 
-    @OneToMany(mappedBy = "anime", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "anime", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference
     private List<CharacterEntity> characters = new ArrayList<>();
 
-    @OneToMany(mappedBy = "anime", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "anime", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference
     private List<EpisodeEntity> episodes = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "ANIME_GENRE",
+            joinColumns = @JoinColumn(name = "ID_ANIME"),
+            inverseJoinColumns = @JoinColumn(name = "ID_GENRE"))
+    private List<GenreEntity> genres = new ArrayList<>();
 
 }
