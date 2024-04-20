@@ -30,9 +30,9 @@ public class CharacterControllerImp implements CharacterController {
         if (character.getId() != null) {
             throw new HandledException("400", "The request doesn't need to insert the ID into the payload");
         }
-        log.info("[postCharacter] Request payload: {}", character.toString());
+        log.info("[postCharacterByAnimeId] Request payload: {}", character.toString());
         Character result = characterInputPort.postCharacterByAnimeId(idAnimme, character);
-        log.info("[postCharacter] Response: {}", result.toString());
+        log.info("[postCharacterByAnimeId] Response: {}", result.toString());
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
