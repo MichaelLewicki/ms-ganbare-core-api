@@ -72,6 +72,10 @@ public class CharacterAdapter implements CharacterOutputPort {
         CharacterEntity characterFound = characterRepository.findById(idCharacter)
                 .orElseThrow(() -> new HandledException("404", "Character not found"));
         characterRepository.delete(characterFound);
+        AnimeEntity anime = characterFound.getAnime();
+        if (anime != null) {
+            anime.getCharacters().remove(characterFound);
+        }
         return new Message("record deleted");
     }
 }
