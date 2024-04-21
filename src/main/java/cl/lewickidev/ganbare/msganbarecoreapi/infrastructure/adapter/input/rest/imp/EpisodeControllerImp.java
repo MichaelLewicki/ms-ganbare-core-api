@@ -1,8 +1,8 @@
-package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.imp;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.rest.imp;
 
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Episode;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.EpisodeController;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.rest.EpisodeController;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.input.EpisodeInputPort;
 import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
 import lombok.extern.slf4j.Slf4j;

@@ -1,13 +1,13 @@
-package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mapper;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.mapper;
 
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Character;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Episode;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Genre;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity.AnimeEntity;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity.CharacterEntity;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity.EpisodeEntity;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity.GenreEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.AnimeEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.CharacterEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.EpisodeEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.GenreEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants.ComponentModel;

@@ -1,4 +1,4 @@
-package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.rest;
 
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Character;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;

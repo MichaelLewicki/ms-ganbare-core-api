@@ -1,12 +1,12 @@
-package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql;
 
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Character;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity.AnimeEntity;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity.CharacterEntity;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mapper.DomainEntityMapper;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.repository.CharacterRepository;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.AnimeEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.CharacterEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.mapper.DomainEntityMapper;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.repository.CharacterRepository;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.AnimeOutputPort;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.CharacterOutputPort;
 import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;

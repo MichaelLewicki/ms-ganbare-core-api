@@ -1,4 +1,4 @@
-package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;

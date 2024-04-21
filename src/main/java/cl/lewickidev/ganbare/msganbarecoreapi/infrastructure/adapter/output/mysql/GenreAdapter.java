@@ -1,10 +1,10 @@
-package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql;
 
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Genre;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity.GenreEntity;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mapper.DomainEntityMapper;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.repository.GenreRepository;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.GenreEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.mapper.DomainEntityMapper;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.repository.GenreRepository;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.GenreOutputPort;
 import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
 import jakarta.transaction.Transactional;

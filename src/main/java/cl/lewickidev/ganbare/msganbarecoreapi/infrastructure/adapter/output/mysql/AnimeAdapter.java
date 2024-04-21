@@ -1,11 +1,11 @@
-package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql;
 
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
 import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.entity.AnimeEntity;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mapper.DomainEntityMapper;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.repository.AnimeRepository;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.AnimeEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.mapper.DomainEntityMapper;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.repository.AnimeRepository;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.AnimeOutputPort;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
