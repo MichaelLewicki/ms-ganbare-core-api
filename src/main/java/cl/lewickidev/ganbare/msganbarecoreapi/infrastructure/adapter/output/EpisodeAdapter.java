@@ -10,6 +10,7 @@ import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.repo
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.AnimeOutputPort;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.EpisodeOutputPort;
 import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +29,7 @@ public class EpisodeAdapter implements EpisodeOutputPort {
     private AnimeOutputPort animeOutputPort;
 
     @Override
+    @Transactional
     public Episode postEpisodeByAnimeId(Long idAnime, Episode episode) throws HandledException {
         Anime animeFound = animeOutputPort.findAnimeById(idAnime);
         AnimeEntity animeEntity = domainEntityMapper.toEntity(animeFound);
@@ -37,6 +39,7 @@ public class EpisodeAdapter implements EpisodeOutputPort {
     }
 
     @Override
+    @Transactional
     public Episode updateEpisodeById(Episode episode, Long idEpisode) throws HandledException {
         EpisodeEntity episodeFound = episodeRepository.findById(idEpisode)
                 .orElseThrow(() -> new HandledException("404", "Episode not found"));
@@ -46,6 +49,7 @@ public class EpisodeAdapter implements EpisodeOutputPort {
     }
 
     @Override
+    @Transactional
     public Episode findEpisodeById(Long idEpisode) throws HandledException {
         EpisodeEntity episodeFound = episodeRepository.findById(idEpisode)
                 .orElseThrow(() -> new HandledException("404", "Episode not found"));
@@ -53,15 +57,21 @@ public class EpisodeAdapter implements EpisodeOutputPort {
     }
 
     @Override
+    @Transactional
     public Page<Episode> findAllEpisodes(Pageable pageable) {
         Page<EpisodeEntity> episodeList = episodeRepository.findAll(pageable);
         return domainEntityMapper.toEpisodeDTOs(episodeList);
     }
 
     @Override
+    @Transactional
     public Message deleteEpisodeById(Long idEpisode) throws HandledException {
         EpisodeEntity episodeFound = episodeRepository.findById(idEpisode)
                 .orElseThrow(() -> new HandledException("404", "Episode not found"));
+        AnimeEntity anime = episodeFound.getAnime();
+        if (anime != null) {
+            anime.getEpisodes().remove(episodeFound);
+        }
         episodeRepository.delete(episodeFound);
         return new Message("record deleted");
     }
