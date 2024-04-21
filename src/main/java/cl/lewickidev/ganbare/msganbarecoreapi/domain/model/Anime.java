@@ -1,10 +1,12 @@
 package cl.lewickidev.ganbare.msganbarecoreapi.domain.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.*;
 
 @Data
+@NoArgsConstructor
 public class Anime {
 
     private Long id;
