@@ -1,13 +1,15 @@
 package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Data
 @Table(name = "CHARACTER_INFO")
+@ToString(exclude = {"anime"})
 public class CharacterEntity {
 
     @Id

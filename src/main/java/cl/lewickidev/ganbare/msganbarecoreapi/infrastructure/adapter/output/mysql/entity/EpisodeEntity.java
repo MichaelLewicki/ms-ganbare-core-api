@@ -5,10 +5,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Table(name = "EPISODE")
 @Entity
+@ToString(exclude = "anime")
 public class EpisodeEntity {
 
     @Id
