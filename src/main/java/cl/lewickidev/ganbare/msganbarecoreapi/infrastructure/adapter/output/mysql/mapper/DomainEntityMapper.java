@@ -14,6 +14,8 @@ import org.mapstruct.MappingConstants.ComponentModel;
 import org.mapstruct.NullValueCheckStrategy;
 import org.springframework.data.domain.Page;
 
+import java.util.List;
+
 
 @Mapper(componentModel = ComponentModel.SPRING, nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
 public interface DomainEntityMapper {
@@ -60,9 +62,12 @@ public interface DomainEntityMapper {
 
 	Genre toDTO(GenreEntity entity);
 
+	@Mapping(target = "animes", ignore = true)
 	GenreEntity toEntity(Genre dto);
 
-	//List<Anime> toGenreDTOs(List<AnimeEntity> animeEntities);
+	List<GenreEntity> toGenreEntities(List<Genre> genreDTOs);
+
+	//List<Genre> toGenreDTOs(List<GenreEntity> genreEntities);
 
 	default Page<Genre> toGenreDTOs(Page<GenreEntity> genreEntities) {
 		return genreEntities.map(this::toDTO);

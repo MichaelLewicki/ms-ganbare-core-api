@@ -4,10 +4,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -38,16 +36,17 @@ public class AnimeEntity {
 
     @OneToMany(mappedBy = "anime", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference
-    private List<CharacterEntity> characters = new ArrayList<>();
+    private List<CharacterEntity> characters;
 
     @OneToMany(mappedBy = "anime", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference
-    private List<EpisodeEntity> episodes = new ArrayList<>();
+    private List<EpisodeEntity> episodes;
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "ANIME_GENRE",
             joinColumns = @JoinColumn(name = "ID_ANIME"),
             inverseJoinColumns = @JoinColumn(name = "ID_GENRE"))
-    private List<GenreEntity> genres = new ArrayList<>();
+    @JsonManagedReference
+    private List<GenreEntity> genres;
 
 }

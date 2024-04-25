@@ -2,6 +2,9 @@ package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mys
 
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
+import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Genre;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.GenreEntity;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.GenreOutputPort;
 import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.AnimeEntity;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.mapper.DomainEntityMapper;
@@ -14,6 +17,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Component
@@ -24,6 +29,9 @@ public class AnimeAdapter implements AnimeOutputPort {
 
     @Autowired
     private DomainEntityMapper domainEntityMapper;
+
+    @Autowired
+    private GenreOutputPort genreOutputPort;
 
     @Override
     @Transactional
@@ -41,6 +49,9 @@ public class AnimeAdapter implements AnimeOutputPort {
         animeFound.setYear(anime.getYear());
         animeFound.setDescription(anime.getDescription());
         animeFound.setImage(anime.getImage());
+        if (anime.getGenres() != null) {
+            updateRelationshipsWihGenres(anime.getGenres(), animeFound);
+        }
         return domainEntityMapper.toDTO(animeRepository.save(animeFound));
     }
 
@@ -66,6 +77,18 @@ public class AnimeAdapter implements AnimeOutputPort {
                 .orElseThrow(() -> new HandledException("404", "Anime not found"));
         animeRepository.delete(animeFound);
         return new Message("record deleted");
+    }
+
+    //private methods...
+
+    private void updateRelationshipsWihGenres(List<Genre> genresToFind, AnimeEntity animeFound) throws HandledException {
+        List<GenreEntity> genreEntities = new ArrayList<>();
+        List<Genre> genresFound = new ArrayList<>();
+        for (Genre e: genresToFind) {
+            genresFound.add(genreOutputPort.findGenreById(e.getId()));
+        }
+        genreEntities = domainEntityMapper.toGenreEntities(genresFound);
+        animeFound.setGenres(genreEntities);
     }
 
 }
