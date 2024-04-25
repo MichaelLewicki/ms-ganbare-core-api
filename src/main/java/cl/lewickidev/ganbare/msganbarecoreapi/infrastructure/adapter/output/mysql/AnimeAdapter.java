@@ -50,7 +50,7 @@ public class AnimeAdapter implements AnimeOutputPort {
         animeFound.setDescription(anime.getDescription());
         animeFound.setImage(anime.getImage());
         if (anime.getGenres() != null) {
-            updateRelationshipsWihGenres(anime.getGenres(), animeFound);
+            updateRelationshipsWithGenres(anime.getGenres(), animeFound);
         }
         return domainEntityMapper.toDTO(animeRepository.save(animeFound));
     }
@@ -81,7 +81,7 @@ public class AnimeAdapter implements AnimeOutputPort {
 
     //private methods...
 
-    private void updateRelationshipsWihGenres(List<Genre> genresToFind, AnimeEntity animeFound) throws HandledException {
+    private void updateRelationshipsWithGenres(List<Genre> genresToFind, AnimeEntity animeFound) throws HandledException {
         List<GenreEntity> genreEntities = new ArrayList<>();
         List<Genre> genresFound = new ArrayList<>();
         for (Genre e: genresToFind) {
