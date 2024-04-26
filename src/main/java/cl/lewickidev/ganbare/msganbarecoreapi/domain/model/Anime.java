@@ -13,8 +13,8 @@ public class Anime {
     private String description;
     private String image;
 
-    private List<Character> characters;
-    private List<Episode> episodes;
-    private List<Genre> genres;
+    private List<Character> characters = new ArrayList<>();
+    private List<Episode> episodes = new ArrayList<>();
+    private List<Genre> genres = new ArrayList<>();
 
 }

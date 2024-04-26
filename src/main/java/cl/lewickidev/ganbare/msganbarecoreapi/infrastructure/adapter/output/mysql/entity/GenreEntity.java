@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -22,6 +24,6 @@ public class GenreEntity {
 
     @ManyToMany(mappedBy = "genres")
     @JsonBackReference
-    private List<AnimeEntity> animes;
+    private List<AnimeEntity> animes = new ArrayList<>();
 
 }

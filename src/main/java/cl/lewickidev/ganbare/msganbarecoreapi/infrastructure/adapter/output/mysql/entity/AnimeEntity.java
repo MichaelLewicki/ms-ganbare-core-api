@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -36,17 +37,17 @@ public class AnimeEntity {
 
     @OneToMany(mappedBy = "anime", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference
-    private List<CharacterEntity> characters;
+    private List<CharacterEntity> characters = new ArrayList<>();
 
     @OneToMany(mappedBy = "anime", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference
-    private List<EpisodeEntity> episodes;
+    private List<EpisodeEntity> episodes = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "ANIME_GENRE",
             joinColumns = @JoinColumn(name = "ID_ANIME"),
             inverseJoinColumns = @JoinColumn(name = "ID_GENRE"))
     @JsonManagedReference
-    private List<GenreEntity> genres;
+    private List<GenreEntity> genres = new ArrayList<>();
 
 }

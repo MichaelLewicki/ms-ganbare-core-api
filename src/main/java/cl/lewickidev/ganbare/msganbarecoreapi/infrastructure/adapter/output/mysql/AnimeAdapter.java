@@ -36,7 +36,20 @@ public class AnimeAdapter implements AnimeOutputPort {
     @Override
     @Transactional
     public Anime postAnime(Anime anime) throws HandledException {
+        List<Genre> genresToAdd = new ArrayList();
+        List<Genre> genresToFind = anime.getGenres();
+        if (genresToFind != null) {
+            for (Genre g: genresToFind) {
+                genresToAdd.add(genreOutputPort.findGenreById(g.getId()));
+            }
+        }
         AnimeEntity animeEntity = domainEntityMapper.toEntity(anime);
+        List<GenreEntity> genreEntities = domainEntityMapper.toGenreEntities(genresToAdd);
+        if (genreEntities != null) {
+            genreEntities.forEach(genreEntity ->
+                    genreEntity.getAnimes().add(animeEntity));
+        }
+        animeEntity.setGenres(genreEntities);
         return domainEntityMapper.toDTO(animeRepository.save(animeEntity));
     }
 
@@ -49,7 +62,7 @@ public class AnimeAdapter implements AnimeOutputPort {
         animeFound.setYear(anime.getYear());
         animeFound.setDescription(anime.getDescription());
         animeFound.setImage(anime.getImage());
-        if (anime.getGenres() != null) {
+        if (anime.getGenres() != null && !anime.getGenres().isEmpty()) {
             updateRelationshipsWithGenres(anime.getGenres(), animeFound);
         }
         return domainEntityMapper.toDTO(animeRepository.save(animeFound));
