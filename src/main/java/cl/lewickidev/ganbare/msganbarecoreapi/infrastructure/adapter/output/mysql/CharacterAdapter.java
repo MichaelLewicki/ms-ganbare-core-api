@@ -71,11 +71,11 @@ public class CharacterAdapter implements CharacterOutputPort {
     public Message deleteCharacterById(Long idCharacter) throws HandledException {
         CharacterEntity characterFound = characterRepository.findById(idCharacter)
                 .orElseThrow(() -> new HandledException("404", "Character not found"));
-        characterRepository.delete(characterFound);
         AnimeEntity anime = characterFound.getAnime();
         if (anime != null) {
             anime.getCharacters().remove(characterFound);
         }
+        characterRepository.delete(characterFound);
         return new Message("record deleted");
     }
 }

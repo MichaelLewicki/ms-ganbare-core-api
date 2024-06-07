@@ -36,7 +36,7 @@ public class AnimeAdapter implements AnimeOutputPort {
     @Override
     @Transactional
     public Anime postAnime(Anime anime) throws HandledException {
-        List<Genre> genresToAdd = new ArrayList();
+        List<Genre> genresToAdd = new ArrayList<>();
         List<Genre> genresToFind = anime.getGenres();
         if (genresToFind != null) {
             for (Genre g: genresToFind) {

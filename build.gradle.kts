@@ -29,6 +29,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.mapstruct:mapstruct:1.5.5.Final")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.3")
+	implementation("org.seleniumhq.selenium:selenium-java:4.21.0")
 
 	compileOnly("org.projectlombok:lombok")
 

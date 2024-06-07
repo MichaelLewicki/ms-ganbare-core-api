@@ -9,6 +9,12 @@ import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.input.AnimeInp
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,6 +23,13 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.File;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 @Slf4j
 @RestController
@@ -72,6 +85,63 @@ public class AnimeControllerImp implements AnimeController {
         Message result = animeInputPort.deleteAnimeById(idAnime);
         log.info("[deleteAnimeById] Response: {}", result.toString());
         return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @Override
+    public ResponseEntity<List<Anime>> findAnimes() throws HandledException {
+        // Inicializar el WebDriver
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
+        WebDriver driver = new ChromeDriver(options);
+        List<Anime> animesList = new ArrayList<>();
+
+        String url = "https://www.animeid.tv/letra/a";
+        driver.get(url);
+        for (int i = 0; 6 > i; i++) {
+            try {
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+
+                // Encontrar todos los artículos de anime en la página
+                List<WebElement> animeElements = driver.findElements(By.cssSelector("section#result article"));
+
+                log.info("Número de elementos encontrados: " + animeElements.size());
+
+                for (WebElement animeElement : animeElements) {
+                    Anime anime = new Anime();
+
+                    try {
+                        WebElement elementTitle = animeElement.findElement(By.cssSelector("a header"));
+                        if (elementTitle != null) {
+                            String title = elementTitle.getText();
+                            anime.setName(title);
+                            log.info("Título encontrado: " + title);
+                        }
+                    } catch (NoSuchElementException e) {
+                        log.warn("Título no encontrado en uno de los elementos.");
+                    }
+
+                    try {
+                        WebElement elementDescription = animeElement.findElement(By.cssSelector("p div"));
+                        if (elementDescription != null) {
+                            String description = elementDescription.getText();
+                            anime.setDescription(description);
+                            log.info("Descripción encontrada: " + description);
+                        }
+                    } catch (NoSuchElementException e) {
+                        log.warn("Descripción no encontrada en uno de los elementos.");
+                    }
+                    animesList.add(anime);
+                }
+                WebElement nextButton = driver.findElement(By.cssSelector("#paginas > ul > li:nth-child(10) > a"));
+                nextButton.click();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                // Cerrar el WebDriver
+                driver.quit();
+            }
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(animesList);
     }
 
 }

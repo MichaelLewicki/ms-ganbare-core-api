@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RequestMapping(value = "/api/v1/ganbare")
 @CrossOrigin("*")
@@ -31,5 +33,8 @@ public interface AnimeController {
 
     @DeleteMapping("/anime/{idAnime}")
     public ResponseEntity<Message> deleteAnimeById(@Valid @NotNull @PathVariable("idAnime") Long idAnime) throws HandledException;
+
+    @GetMapping("/anime/scrapper")
+    public ResponseEntity<List<Anime>> findAnimes() throws HandledException;
 
 }
