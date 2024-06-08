@@ -1,4 +1,4 @@
-package cl.lewickidev.ganbare.msganbarecoreapi.shared.exception;
+package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.exception;
 
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;

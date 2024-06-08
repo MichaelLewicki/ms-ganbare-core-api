@@ -3,8 +3,8 @@ package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.rest
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Genre;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.rest.GenreController;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.input.GenreInputPort;
-import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.application.port.input.GenreInputPort;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.exception.HandledException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

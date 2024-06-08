@@ -3,9 +3,9 @@ package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.rest
 
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Anime;
-import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.exception.HandledException;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.rest.AnimeController;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.input.AnimeInputPort;
+import cl.lewickidev.ganbare.msganbarecoreapi.application.port.input.AnimeInputPort;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
@@ -24,10 +24,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.File;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 

@@ -7,9 +7,9 @@ import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysq
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.entity.CharacterEntity;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.mapper.DomainEntityMapper;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.output.mysql.repository.CharacterRepository;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.AnimeOutputPort;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output.CharacterOutputPort;
-import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.application.port.output.AnimeOutputPort;
+import cl.lewickidev.ganbare.msganbarecoreapi.application.port.output.CharacterOutputPort;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.exception.HandledException;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,8 +4,8 @@ package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.rest
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Character;
 import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.adapter.input.rest.CharacterController;
-import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.input.CharacterInputPort;
-import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.application.port.input.CharacterInputPort;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.exception.HandledException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
