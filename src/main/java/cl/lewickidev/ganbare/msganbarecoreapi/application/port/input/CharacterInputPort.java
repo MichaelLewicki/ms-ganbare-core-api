@@ -1,12 +1,12 @@
-package cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.port.output;
+package cl.lewickidev.ganbare.msganbarecoreapi.application.port.input;
 
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.model.Character;
 import cl.lewickidev.ganbare.msganbarecoreapi.domain.dto.Message;
-import cl.lewickidev.ganbare.msganbarecoreapi.shared.exception.HandledException;
+import cl.lewickidev.ganbare.msganbarecoreapi.infrastructure.exception.HandledException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface CharacterOutputPort {
+public interface CharacterInputPort {
 
     Character postCharacterByAnimeId(Long idAnime, Character character) throws HandledException;
 
